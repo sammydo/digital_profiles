@@ -4,7 +4,8 @@
   "description": "Digital Profiles project for Sparta Global",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "mocha": "MONGODB_URI=mongodb://localhost/digital-profiles-test mocha"
   },
   "repository": {
     "type": "git",

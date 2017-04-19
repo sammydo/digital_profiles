@@ -1,0 +1,30 @@
+<div id='navbar' ui-view='navbar'></div>
+
+<div id="login__section">
+  <section class="container">
+    <div class="row">
+      <h5 class="center-align top-header">Make an Enquiry</h5>
+    </div>
+
+    <div class="row">
+      <div class="col s8 offset-s2 m6 offset-m3">
+        <p>Any questions about us or our spartans?</p>
+        <p>Send us a message below and we'll contact you as soon as possible. </p>
+        <p>Alternatively, call us on 020 8940 2333</p>
+      </div>
+
+      <div class="col s8 offset-s2 m6 offset-m3 input-field">
+        <label for="message">Message:</label>
+        <textarea class="materialize-textarea validate" id="message" ng-model="auth.message"></textarea>
+      </div>
+
+      <div class="col offset-s4 s6 offset-m5 input-field">
+        <button id="login__btn" class="btn waves-effect waves-light" type="submit" name="action" ng-click="auth.enquiry()">Make Enquiry</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <toast></toast>
+    </div>
+  </section>
+</div>

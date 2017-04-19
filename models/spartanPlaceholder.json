@@ -1,0 +1,30 @@
+{
+    "picture": "assets/images/ProfilePlaceholderSuit.png",
+    "stream": "Example-Stream-X",
+    "education": {
+        "institution": "University",
+        "dateStarted": "24/08/1998",
+        "dateFinished": "24/08/1998",
+        "grade": "2:1",
+        "course": "BSc Placeholder"
+    },
+    "pastExperience": [{
+        "jobTitle": "Exmaple Job",
+        "dateStarted": "24/08/1998",
+        "dateFinished": "24/08/1998",
+        "description": "2:1"
+    }],
+    "projects": [{
+        "name": "Example Project",
+        "description": "Short description about the project",
+        "link": "examplelink.com"
+    }],
+    "trainerProfile": "Description of student by trainer",
+    "personalStatement": "Personal Statement",
+    "suitableRoles": "Role, Role, Role",
+    "jobtitle": "My Job",
+    "quote": "Example Quote",
+    "skills": [],
+    "availability": false,
+    "finished": false
+}

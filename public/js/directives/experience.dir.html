@@ -1,0 +1,21 @@
+<div id="experience__tab__profile" ng-repeat="experience in experiences">
+  <div class="col s6">
+    <label for="jobtitle">Job Title:</label>
+    <input type="text" id="jobtitle" ng-model="experience.jobTitle" ng-readonly="profileswitch">
+  </div>
+
+  <div class="col s6">
+    <label for="jobstart">Date Started:</label>
+    <input type="text" id="jobstart" ng-value="experience.dateStarted" ng-model="experience.dateStarted" ng-readonly="profileswitch">
+  </div>
+
+  <div class="col s6">
+    <label for="jobdesc">Description:</label>
+    <input type="text" id="jobdesc" ng-model="experience.description" ng-readonly="profileswitch">
+  </div>
+
+  <div class="col s6">
+    <label for="jobfinish">Date Finished:</label>
+    <input type="text" id="jobfinish" ng-value="experience.dateFinished" ng-model="experience.dateFinished" ng-readonly="profileswitch">
+  </div>
+</div>

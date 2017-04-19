@@ -1,0 +1,89 @@
+<nav id="sparta__navbar" class="button-collapse">
+  <div class="nav-wrapper">
+    <!-- website logo -->
+    <a id="sparta__logo" href="#">
+      <img class="logo" src="assets/images/sparta/ReverseColorLogo.png" alt="Sparta Global Logo">
+    </a>
+
+    <!-- dropdown burger menu -->
+    <a href="#" class="button-collapse right" data-activates="mobile-demo" data-sidenav="right" data-menuwidth="300" data-closeonclick="false">
+      <i class="small material-icons">reorder</i>
+    </a>
+
+    <!-- navbar dropdown mobile view -->
+    <ul class="side-nav" id="mobile-demo">
+      <li id="mobile__logo" class="valign-wrapper">
+        <img src="assets/images/sparta/MarkWhiteColoronTrans.png">
+      </li>
+      <li>
+        <a id="home" ui-sref="splash">Home</a>
+      </li>
+      <li ng-if="auth.user.data[0].role === 2">
+        <a href='#' ui-sref="register">Create a User</a>
+      </li>
+      <li ng-if="auth.user.data[0].role === 1">
+        <a href='#' ui-sref="enquiry">Enquiry</a>
+      </li>
+      <li ng-if="!auth.loggedIn">
+        <a href='#' ui-sref="login">Login</a>
+      </li>
+      <li>
+        <a href="http://spartaglobal.com/us/" target="_blank">About</a>
+      </li>
+      <li>
+        <a href="http://spartaglobal.com/academy/" target="_blank">Team</a>
+      </li>
+      <li>
+        <a ui-sref="faq">Help</a>
+      </li>
+      <li ng-if="auth.loggedIn" ng-click="auth.signOut()">
+        <a href="#">Sign Out</a>
+      </li>
+    </ul>
+
+  <!-- navbar -->
+  <ul ng-if="!auth.loggedIn" id="nav-desktop" class="right hide-on-med-and-down">
+    <li>
+      <a id="home" ui-sref="splash">
+        <i class="material-icons">home</i>
+      </a>
+    </li>
+    <li>
+      <a href='#' ui-sref="login">Login</a>
+    </li>
+    <li>
+      <a href="http://spartaglobal.com/us/" target="_blank">About</a>
+    </li>
+    <li>
+      <a href="http://spartaglobal.com/academy/" target="_blank">Team</a>
+    </li>
+    <li>
+      <a ui-sref="faq">Help</a>
+    </li>
+  </ul>
+
+  <ul ng-if="auth.loggedIn" id="nav-desktop" class="right hide-on-med-and-down">
+    <li>
+      <a id="home" ui-sref="splash">
+        <i class="material-icons">home</i>
+      </a>
+    </li>
+    <li ng-if="auth.user.data[0].role === 2">
+      <a href='#' ui-sref="register">Create a User</a>
+    </li>
+    <li ng-if="auth.user.data[0].role === 1">
+      <a href='#' ui-sref="enquiry">Enquiry</a>
+    </li>
+    <li>
+      <a href="http://spartaglobal.com/us/" target="_blank">About</a>
+    </li>
+    <li>
+      <a href="http://spartaglobal.com/academy/" target="_blank">Team</a>
+    </li>
+    <li>
+      <a ui-sref="faq">Help</a>
+    <li>
+      <a href="#" ng-click="auth.signOut()">Sign Out</a>
+    </li>
+  </ul>
+</nav>

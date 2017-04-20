@@ -8,7 +8,7 @@ var User = require('../models/user');
 
 chai.use(chaiHttp);
 
-describe('Admin users', function() {
+describe.skip('Admin users', function() {
   var currentUID
   var currentAuthToken
   var newAdminId

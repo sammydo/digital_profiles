@@ -1,0 +1,200 @@
+<div id='navbar' ui-view='navbar'></div>
+<br></br>
+
+<div class="container" ng-init="spartanCtrl.getSpartan()" ng-init="auth.getUser()">
+  <div class="row">
+    <!-- **Left-side column** -->
+    <div id="profile-panel" class="col s12 m4 l3">
+      <!-- Picture and Name Partial (left side) -->
+      <div class="card">
+        <div class="card-image">
+          <img class="responsive-img" src="{{ spartanCtrl.spartan.profile.picture }}" alt="{{ spartanCtrl.spartan.profile.firstname }} Picture">
+          <input id="picture" type="text" class="rm-style" ng-model="spartanCtrl.spartan.profile.picture" ng-class="{ 'hidden': spartanCtrl.switch }" ng-readonly="spartanCtrl.switch"></input>
+        </div>
+
+        <div class="card-content">
+          <input id="first-name" type="text" class="card-title grey-text text-darken-4 rm-style" value="{{ spartanCtrl.spartan.profile.firstname }}" ng-model="spartanCtrl.spartan.profile.firstname" ng-readonly="spartanCtrl.switch"></input>
+          <input id="last-name" type="text" class="card-title grey-text text-darken-4 rm-style" value=" {{ spartanCtrl.spartan.profile.lastname }}" ng-model="spartanCtrl.spartan.profile.lastname" ng-readonly="spartanCtrl.switch"></input>
+          <textarea ng-if="spartanCtrl.spartan.profile.availability" id="job-title" type="text" value="{{ spartanCtrl.spartan.profile.jobtitle }}" ng-model="spartanCtrl.spartan.profile.jobtitle" ng-readonly="spartanCtrl.switch"></textarea>
+          <textarea ng-if="!spartanCtrl.spartan.profile.availability" id="job-title-unavailable" type="text" ng-value="spartanCtrl.spartan.profile.availability | Available" ng-model="spartanCtrl.spartan.profile.availability" ng-readonly="spartanCtrl.switch"></textarea>
+        </div>
+
+        <div class="card-action">
+          <textarea type="text" class="center-align grey-text text-darken-4" value='"{{ spartanCtrl.spartan.profile.quote }}"' ng-model="spartanCtrl.spartan.profile.quote" ng-readonly="spartanCtrl.switch"></textarea>
+        </div>
+
+      </div>
+    </div>
+    <!-- **Left-side column END** -->
+
+    <!-- **Right-side column** -->
+    <div class="col s12 m8 l8">
+
+      <!-- Navigation tabs -->
+      <div id="profile__tabs">
+        <ul tabs reload="allTabContentLoaded" class="row">
+          <li class="tab col s12 m4 l4">
+            <a href="#education">Education</a>
+          </li>
+          <li class="tab col s12 m4 l4">
+            <a href="#experience">Experience</a>
+          </li>
+          <li class="tab col s12 m4 l4">
+            <a href="#projects">Projects</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tab content -->
+      <div id="tab-content" class="col s12 m12 l12">
+        <!-- Education Tab -->
+        <div id="education" class="col s12 m12">
+          <div class="col s6">
+            <label for="course">Course:</label>
+            <input type="text" id="course" ng-model="spartanCtrl.spartan.profile.education.course" ng-readonly="spartanCtrl.switch">
+          </div>
+
+          <div class="col s6">
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" ng-model="spartanCtrl.spartan.profile.education.grade" ng-readonly="spartanCtrl.switch">
+          </div>
+
+          <div class="col s6">
+            <label for="edustart">Date Started:</label>
+            <input type="text" id="edustart" ng-value="spartanCtrl.spartan.profile.education.dateStarted" ng-model="spartanCtrl.spartan.profile.education.dateStarted" ng-readonly="spartanCtrl.switch">
+          </div>
+
+          <div class="col s6">
+            <label for="edufinish">Date Finished:</label>
+            <input type="text" id="edufinish" ng-value="spartanCtrl.spartan.profile.education.dateFinished" ng-model="spartanCtrl.spartan.profile.education.dateFinished" ng-readonly="spartanCtrl.switch">
+          </div>
+
+          <div class="col s6">
+            <label for="institution">Institution:</label>
+            <input type="text" id="institution" ng-model="spartanCtrl.spartan.profile.education.institution" ng-readonly="spartanCtrl.switch">
+          </div>
+        </div>
+        <!-- Education End -->
+
+        <!-- Experience Tab -->
+        <div id="experience" class="col s12 m12">
+          <experiencetab experiences="spartanCtrl.spartan.profile.pastExperience" profileswitch="spartanCtrl.switch"></experiencetab>
+        </div>
+        <!-- End -->
+
+        <!-- Projects Tab -->
+        <div id="projects" class="col s12 m12">
+          <projecttab projects="spartanCtrl.spartan.profile.projects" profileswitch="spartanCtrl.switch"></projecttab>
+        </div>
+        <!-- End -->
+      </div>
+
+      <!-- Personal Statement -->
+      <div id="personal__statement" class="row">
+        <label class="col s12 profile-header">
+          <span class="header-underline">Personal Statement</span>
+        </label>
+        <div class="col s12 padded">
+          <textarea id="statement" rows="20" col="50" class="col s12 materialize-textarea" ng-readonly="spartanCtrl.switch" ng-model="spartanCtrl.spartan.profile.personalStatement"></textarea>
+        </div>
+      </div>
+      <!-- Personal Statement End-->
+
+      <!-- Skills -->
+      <div class="row">
+        <div class="input-field" ng-init="auth.real()">
+          <label class="col s12 active tab profile-header" id="skills-label">
+            <span class="header-underline">Skills</span>
+          </label>
+
+          <div ng-if="auth.skillauth === true" id="skills" input-field class="col s12">
+            <select id="skill-select" class="browser-default col s6 offset-m2 white" ng-model="spartanCtrl.currentSkill">
+              <option ng-selected="spartanCtrl.currentSkill == skill" ng-repeat="skill in spartanCtrl.skills track by $index" ng-value="skill">
+                {{skill}}
+              </option>
+            </select>
+
+            <button id="add__skill__btn" class="btn waves-effect waves-light col s4 m3 l2" type="submit" name="action" ng-click="spartanCtrl.addSkill()">Add skill</button>
+          </div>
+        </div>
+
+        <div class="chip col s5 m4 l3" ng-if="spartanCtrl.spartan.profile.skills.length > 0" ng-repeat="skills in spartanCtrl.spartan.profile.skills track by $index">
+          <span>{{skills}}</span>
+
+          <span ng-if="auth.skillauth === true" class="closebtn" ng-click="spartanCtrl.removeSkill(skills)">&times;</span>
+        </div>
+      </div><!-- Skills END -->
+    </div><!-- **Right-side column END** -->
+
+    <!-- ** ADMIN CONTOLS ** -->
+    <div id="admin-controls" ng-if="auth.user.data[0].role === 2" class="row">
+      <!-- Profile VISIBILITY switch -->
+      <div id="profileVisibility" class="col s4">
+        <div class="switch">
+          <p>
+            Profile Visbility:
+          </p>
+
+          <label>
+            <span ng-if="!spartanCtrl.switch">Hidden</span>
+
+            <input type="checkbox" ng-model="spartanCtrl.switch" ng-click='spartanCtrl.toggleSwitch()'>
+
+            <span class="lever"></span>
+
+            <span id="shown" ng-if="spartanCtrl.switch">Shown</span>
+          </label>
+        </div>
+      </div>
+      <!-- spartan AVAILABILITY switch -->
+      <div ng-if="auth.user.data[0].role === 2" id="spartanAvailablity" class="col s4">
+        <div class="switch">
+          <p>
+            Available:
+          </p>
+
+          <label>
+            <span id="not-available" ng-if="!spartanCtrl.available">No</span>
+
+            <input type="checkbox" ng-model="spartanCtrl.available" ng-click='spartanCtrl.toggleAvailability()'>
+
+            <span class="lever"></span>
+
+            <span id="available" ng-if="spartanCtrl.available">Yes</span>
+          </label>
+        </div>
+      </div>
+      <!-- Save Button - Saves changes made to information fields -->
+      <div id="save-button" class="col s4">
+        <button id="save__btn" class="btn waves-effect waves-light" type="submit" name="action" ng-if="!spartanCtrl.switch" ng-click="spartanCtrl.save()">Save Changes</button>
+      </div>
+    </div>
+    <!-- ** Admin Controls END** -->
+
+    <!-- Similar Spartans -->
+    <div id="similar__spartans" class="row col s12 m12 l12">
+      <div class="row center-align">
+        <h5 class="top-header">Similar Spartans</h5>
+      </div>
+      <div class="row col s12 m12 offset-l3 l6">
+        <div class="col s6 m4 l4 flip-container" ontouchstart="this.classList.toggle('hover');" ng-repeat="similar in spartanCtrl.foundSimilarity">
+          <a href="#" ui-sref="profile({ id: similar._id })">
+            <div class="card flip-card">
+              <div class="face valign-wrapper">
+                <img class="card-image responsive-img valign" src="{{ similar.profile.picture }}" alt="{{ similar.profile.firstname }} Picture">
+              </div>
+
+              <div class="back-face">
+                <p id="name">{{ similar.profile.firstname}}</p>
+                <p id="job-title">{{ similar.profile.jobtitle}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- end of similar -->
+  </div>
+  <!-- row end-->
+</div>
+<!-- container end -->

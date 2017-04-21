@@ -1,0 +1,64 @@
+<div id='navbar' ui-view='navbar'></div>
+
+<div ng-init="auth.getUser" class="container" ng-controller="SearchController as searchCtrl">
+
+  <div class="row valign-wrapper">
+    <div class="col s12 m8 offset-m2">
+      <h3 class="center-align top-header">Spartan Consultants</h3>
+    </div>
+
+    <div ng-if="auth.user.data[0].role === 2" class="col s12 m2 valign">
+      <form>
+        <div input-field>
+          <select class="browser-default white " ng-change="searchCtrl.updateSplash(true)" ng-model="searchCtrl.data.selected" material-select watch>
+            <option disabled>{{ searchCtrl.data.placeholder }}</option>
+
+            <option>{{ searchCtrl.data.showall }}</option>
+
+            <optgroup label="Streams">
+              <option ng-repeat="stream in searchCtrl.data.streams">{{ stream }}</option>
+            </optgroup>
+
+            <optgroup label="Skills">
+              <option ng-repeat="skill in searchCtrl.data.skills">{{ skill }}</option>
+            <optgroup>
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <div ng-if="auth.user.data[0].role !== 2" class="col s12 m2 valign">
+      <form>
+        <div input-field>
+          <select class="browser-default white" ng-change="searchCtrl.updateSplash(false)" ng-model="searchCtrl.data.selected" material-select watch>
+            <option disabled>{{ searchCtrl.data.placeholder }}</option>
+
+            <option>{{ searchCtrl.data.showall }}</option>
+
+            <optgroup label="Streams">
+              <option ng-repeat="stream in searchCtrl.data.streams">{{ stream }}</option>
+            </optgroup>
+
+            <optgroup label="Skills">
+              <option ng-repeat="skill in searchCtrl.data.skills">{{ skill }}</option>
+            <optgroup>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admins: can see unfinished profiles -->
+  <div ng-if="auth.user.data[0].role === 2">
+    <div class="row" ng-init="searchCtrl.updateSplash(true)">
+      <splashcard class="animate" ng-if="spartanCtrl.spartans" spartans="spartanCtrl.spartans"></splashcard>
+    </div>
+  </div>
+
+  <!-- All other users: can only see finished profiles -->
+  <div ng-if="auth.user.data[0].role !== 2">
+    <div id="splashcard__profiles" class="row" ng-init="searchCtrl.updateSplash(false)">
+      <splashcard class="animate" ng-if="spartanCtrl.finishedSpartans" spartans="spartanCtrl.finishedSpartans"></splashcard>
+    </div>
+  </div>
+</div>

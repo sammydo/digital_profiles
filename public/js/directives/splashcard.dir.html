@@ -1,0 +1,14 @@
+<div class="col s6 m4 l2 flip-container animate" id="{{ $index }}" ontouchstart="this.classList.toggle('hover');" ng-repeat="spartan in spartans">
+  <a href="#" ui-sref="profile({ id: spartan._id })">
+    <div class="card flip-card">
+      <div class="face valign-wrapper">
+        <img class="card-image responsive-img valign" src="{{ spartan.profile.picture }}" alt="{{ spartan.profile.name }} Picture">
+      </div>
+
+      <div class="back-face" ng-class="{ 'red-banner': !spartan.profile.availability }">
+        <p id="name">{{ spartan.profile.firstname}}</p>
+        <p id="job-title">{{ spartan.profile.jobtitle}}</p>
+      </div>
+    </div>
+  </a>
+</div>

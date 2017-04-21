@@ -1,0 +1,32 @@
+<h3 class="center-align top-header">Spartan Registration</h3>
+
+<div class="col s12 m12">
+  <div class="reg-form">
+    <section class="container">
+      <div class="row">
+        <!-- Dropdown Trigger -->
+        <div class="center-align">
+          <div class="col s12 userForm input-field">
+            <label for="firstname">First Name:</label>
+            <input type="text" class="validate" id="firstname" ng-model="auth.first_name">
+          </div>
+          <div class="col s12 userForm input-field">
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="validate" id="lastname" ng-model="auth.last_name">
+          </div>
+          <div class="col s12 userForm input-field">
+            <label for="email">Email:</label>
+            <input type="text" class="validate" id="email" ng-model="auth.email">
+          </div>
+          <div class="col s12 s6 userForm input-field">
+            <button class="btn waves-effect waves-light form-btn" type="submit" name="action" ng-click="auth.createUser(0)" data-target='demoModal' modal>Create</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <toast></toast>
+      </div>
+    </section>
+  </div>
+</div>

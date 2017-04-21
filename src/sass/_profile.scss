@@ -1,0 +1,288 @@
+textarea {
+  height: auto;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+}
+
+input[readonly="readonly"],
+input[readonly="readonly"]:focus,
+input[readonly="readonly"]:hover,
+textarea[readonly="readonly"],
+textarea[readonly="readonly"]:focus,
+textarea[readonly="readonly"]:hover {
+  border: none !important;
+  color: black !important;
+  background-style: none !important;
+  padding: 5px !important;
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.padded {
+  padding: 32px !important;
+}
+.header-underline {
+  padding: 0 25px 10px 25px;
+  border-bottom: 2px solid #202529;
+}
+.hidden {
+  display: none;
+}
+.editable {
+  background-color: rgba(52, 190, 239, 0.35);
+}
+.editable[readonly="readonly"] {
+  background-color: 0 0 0 0;
+}
+
+.closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: #000;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+// ==== Admin controls panel ===== //
+
+#admin-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  padding: 15px 10px;
+  background-color: rgba(15, 25, 29, 0.89);
+  // border-radius: 5px;
+  margin: 0 !important;
+
+  p {
+    color: #fff;
+  }
+}
+// Profile visibility
+#profileVisibility {
+  padding: 0 !important;
+  color: #202529;
+
+  span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 8px;
+  }
+
+  span#shown {
+    color: #34beef;
+  }
+}
+
+#profileVisibility label input[type=checkbox]:checked+.lever {
+  background-color: #34beef;
+}
+
+#profileVisibility label input[type=checkbox]:checked+.lever:after {
+  background-color: #34beef;
+}
+
+// Spartan availabilty
+
+// AVAILABLE
+#spartanAvailablity input[type=checkbox].lever {
+  background-color: #34beef !important;
+}
+
+#spartanAvailablity input[type=checkbox].lever::after {
+  background-color: #34beef !important;
+}
+
+// NOT AVAILABLE
+#spartanAvailablity {
+
+  // Lever Unchecked
+  .switch label .lever {
+    background-color: #E25A59;
+  }
+  .switch label .lever::after {
+    background-color: #E25A59;
+  }
+  #not-available {
+    color: #E25A59;
+  }
+
+  // Lever Checked
+  label input[type=checkbox]:checked+.lever {
+    background-color: #34beef;
+  }
+  label input[type=checkbox]:checked+.lever:after {
+    background-color: #34beef;
+  }
+  #available {
+    color: #34beef;
+  }
+
+}
+
+// save button
+button#save__btn {
+  background-color: #34beef;
+  font-size: 0.8rem;
+  margin-top: 10%;
+  text-align: center;
+}
+
+//===================================//
+
+//====left-side column===//
+
+input#first-name, input#last-name, textarea#job-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 20px;
+  text-align: center;
+}
+
+textarea#job-title {
+  width: 100%;
+  color: #34beef !important;
+  height: 70px;
+  background: none !important;
+  font-size: 1.2rem;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+textarea#job-title-unavailable {
+  width: 100%;
+  color: #E25A59 !important;
+  height: 70px;
+  background: none !important;
+  font-size: 1.2rem;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+//=========================//
+
+//=== right-side column ===//
+
+#tab-content {
+  margin: 15px auto;
+}
+
+#experience__tab__profile,
+#project__tab__profile {
+  border-bottom: 1px solid #DDE9EB;
+}
+
+#experience__tab__profile:last-child,
+#project__tab__profile:last-child {
+  border-bottom: none;
+}
+
+#experience, #education, #projects {
+  height: 270px;
+  overflow-y:scroll;
+}
+
+// statement
+textarea#statement {
+  height: 240px !important;
+  padding: 10px;
+   overflow-y:scroll;
+
+}
+// header stylings
+.profile-header {
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 20px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: .8px !important;
+  color: #202529 !important;
+}
+
+// Skills
+
+#skills {
+  margin-bottom: 15px;
+}
+button#add__skill__btn {
+  background-color: #2E373C;
+  font-size: 1rem;
+  margin: 4px 15px !important;
+}
+select#skill-select {
+  width: 50%;
+  display: inline-block;
+}
+.chip {
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: #EEF4F6;
+  color: #202529;
+}
+// similar spartans
+
+#similar__spartans h5 {
+  border-bottom: 1px solid #DDE9EB;
+  padding-bottom: 5px;
+}
+//=========================//
+
+@media screen and (max-width: 500px) {
+  div.flip-container {
+    height: 30vh;
+  }
+  button#save__btn {
+    margin-top: 50%;
+    width: 60px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .card .card-content {
+    padding: 10px;
+  }
+  textarea#job-title {
+    height: 5em;
+  }
+}
+@media screen and (min-width: 769px) {
+  textarea {
+    height: 10em;
+    width: 25em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  textarea {
+    height: 8em;
+    width: 100%;
+  }
+}

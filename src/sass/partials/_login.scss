@@ -1,0 +1,60 @@
+#login__section {
+	margin-top: 150px;
+
+	#login__btn {
+		background-color: #2E373C;
+		color: #fff;
+	}
+
+	.userForm {
+		left: 0;
+	}
+}
+
+#register__button {
+	margin-top: 10%;
+	padding: 20px 0 20px 0;
+
+	a {
+		background-color: #2E373C;
+	}
+}
+
+.form-btn {
+	background-color: #2E373C;
+	color: #fff;
+}
+
+.reg-form {
+	margin-top: 50px;
+}
+
+@media #{$medium-and-up} {
+	#register__button {
+		margin-top: 17%;
+		padding: 80px 20px 80px 0;
+		border-right: 1px solid #d1d1d1;
+	}
+
+	.reg-form {
+		margin-top: 150px;
+	}
+}
+
+#admin__btn,
+#client__btn,
+#sparta__btn {
+	background-color: #2E373C;
+}
+
+#form__placeholder {
+	margin-top: 10vh;
+	padding: 50px;
+}
+
+
+@media screen and (min-width: 768px) {
+	#form__placeholder {
+		margin-top: 35vh;
+	}
+}

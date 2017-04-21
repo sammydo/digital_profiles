@@ -1,0 +1,51 @@
+<div id='navbar' ui-view='navbar'></div>
+
+<div class="container">
+  <div class="row">
+    <!-- Menu show on tablet and desktop -->
+    <div id="register__button" class="col s12 m4 l2 hide-on-small-only">
+      <ul>
+        <li>
+          <a id="adminregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.admin()">Admin</a>
+        </li>
+        <li>
+          <a id="spartanregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.spartan()">Spartan</a>
+        </li>
+        <li>
+          <a id="clientregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.client()">Client</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Menu show on mobile -->
+    <div id="register__button" class="col s12 m12 l12 hide-on-med-and-up">
+      <ul class="center-align">
+        <li>
+          <a id="adminregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.admin()">Admin</a>
+        </li>
+        <li>
+          <a id="spartanregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.spartan()">Spartan</a>
+        </li>
+        <li>
+          <a id="clientregBTN" class="waves-effect waves-light btn col s12" ng-click="auth.client()">Client</a>
+        </li>
+      </ul>
+    </div>
+
+    <div ng-if="auth.placeholder" id="form__placeholder" class="col s12 m8 slide-left">
+      <h5 class="center-align">Please select a user you want to add...</h5>
+    </div>
+
+    <div ng-if="auth.adminForm" class="col s12 m8 slide-left">
+      <div id='adminForm' ui-view='adminreg'></div>
+    </div>
+
+    <div ng-if="auth.clientForm" class="col s12 m8 slide-left">
+      <div id='clientForm' ui-view='clientreg'></div>
+    </div>
+
+    <div ng-if="auth.spartanForm" class="col s12 m8 slide-left">
+      <div id='spartaForm' ui-view='spartanreg'></div>
+    </div>
+  </div>
+</div>

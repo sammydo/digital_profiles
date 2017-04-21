@@ -1,0 +1,47 @@
+{
+  "name": "digital_profiles",
+  "version": "1.0.0",
+  "description": "Digital Profiles project for Sparta Global",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "mocha": "MONGODB_URI=mongodb://localhost/digital-profiles-test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spartaglobal/digital_profiles.git"
+  },
+  "author": "Chris Tsoi, Tom Middlehurst, Gurpal Bahra, Gerald Aqui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spartaglobal/digital_profiles/issues"
+  },
+  "homepage": "https://github.com/spartaglobal/digital_profiles#readme",
+  "dependencies": {
+    "angular-animate": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "bower": "^1.8.0",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "firebase-admin": "^4.1.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-main-bower-files": "^1.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-order": "^1.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.0",
+    "jshint": "^2.9.4",
+    "jwt-decode": "^2.2.0",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.9.1",
+    "node-static": "^0.7.9",
+    "run-sequence": "^1.2.2",
+    "sendmail": "^1.1.1",
+    "url": "^0.11.0"
+  }
+}

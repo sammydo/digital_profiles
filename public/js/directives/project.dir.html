@@ -1,0 +1,16 @@
+<div id="project__tab__profile" class="col s12 m12" ng-repeat="project in projects">
+  <div>
+    <label for="projname">Name:</label>
+    <input type="text" id="projname" ng-model="project.name" ng-readonly="profileswitch">
+  </div>
+
+  <div>
+    <label for="desc">Description:</label>
+    <input type="text" id="desc" ng-model="project.description" ng-readonly="profileswitch">
+  </div>
+
+  <div>
+    <label for="link">Link:</label>
+    <input type="text" id="link" ng-model="project.link" ng-readonly="profileswitch">
+  </div>
+</div>

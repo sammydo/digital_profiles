@@ -15,7 +15,7 @@ var roleMapper = require('./middleware/roleManager');
 mongoose.connect(process.env.MONGODB_URI, function() {
   console.log('MONGODB_URI:', process.env.MONGODB_URI);
 });
-
+// testttt
 // Declare public folder for static assets
 app.use(express.static(__dirname + '/public'));
 

@@ -28,6 +28,6 @@
     "angular-animate": "^1.6.3",
     "angular-socialshare": "^1.4.5",
     "angular-sanitize": "^1.4.5",
-    "ngToast": "^2.0.0"
+    "ngToast": "ngtoast#^2.0.0"
   }
 }

@@ -27,7 +27,7 @@
     "jquery": "^3.2.1",
     "angular-animate": "^1.6.3",
     "angular-socialshare": "^1.4.5",
-    "angular-sanitize.min": "^1.4.5",
-    "ngToast.min.js": "^2.0.0"
+    "angular-sanitize": "^1.4.5",
+    "ngToast": "ngtoast#^2.0.0"
   }
 }

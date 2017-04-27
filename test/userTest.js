@@ -22,7 +22,8 @@ describe.skip('Admin users', function() {
     }
   });
 
-
+// testing
+// ignore this 
   beforeEach(function(done){
     newAdmin.save(function(err, createdAdmin){
       newAdminId = createdAdmin._id;

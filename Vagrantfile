@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
       # ENV["MONGODB_URI"]="mongodb://192.168.10.101"
       db.vm.provision"chef_solo" do |dbchef|
         # dbchef.cookbooks_path= ['cookbooks']
-        # dbchef.run_list =['recipe[node-server::mongo]']
+        dbchef.run_list =['recipe[mongo-server::default]']
       end
   end
 
